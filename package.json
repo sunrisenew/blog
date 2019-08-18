@@ -1,0 +1,39 @@
+{
+  "name": "sunrisenew-blog",
+  "version": "1.0.0",
+  "description": "Blog for sunrisenew",
+  "main": "index.js",
+  "scripts": {
+    "start": "vuepress dev",
+    "build": "vuepress build",
+    "serve": "vuepress serve --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunrisenew/sunrisenew.github.io.git"
+  },
+  "keywords": [
+    "sunrisenew",
+    "blog",
+    "vuepress"
+  ],
+  "author": "sunrisenew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sunrisenew/sunrisenew.github.io/issues"
+  },
+  "homepage": "https://github.com/sunrisenew/sunrisenew.github.io#readme",
+  "dependencies": {
+    "vuepress-plugin-medium-zoom": "^1.1.2",
+    "vuepress-plugin-reading-progress": "^1.0.7",
+    "vuepress-plugin-reading-time": "^0.1.1",
+    "vuetify": "^2.0.7"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-blog": "^1.2.4",
+    "eslint": "^6.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "vuepress": "^1.0.3",
+    "vuepress-plugin-serve": "^1.1.0"
+  }
+}
