@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <v-timeline>
+  <section class="archives">
+    <v-timeline v-if="notEmpty">
       <v-timeline-item v-for="(archive, archiveIndex) in archives" :key="archiveIndex" small>
         <template v-slot:opposite>
           <h3>
@@ -26,6 +26,9 @@ export default {
   computed: {
     archives() {
       return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSorter(prev.name, next.name));
+    },
+    notEmpty() {
+      return this.archives && this.archives.length > 0;
     }
   }
 };

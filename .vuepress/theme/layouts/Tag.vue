@@ -1,9 +1,11 @@
 <template>
-  <v-row>
-    <v-col v-for="(page, index) in pages" :key="index" cols="6">
-      <page-overview :page="page"></page-overview>
-    </v-col>
-  </v-row>
+  <section class="tag">
+    <v-row>
+      <v-col v-for="(page, index) in pages" :key="index" cols="6">
+        <page-overview :page="page"></page-overview>
+      </v-col>
+    </v-row>
+  </section>
 </template>
 
 <script>
