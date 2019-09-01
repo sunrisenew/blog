@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="archive">
     <v-row>
       <v-col>
         <p>

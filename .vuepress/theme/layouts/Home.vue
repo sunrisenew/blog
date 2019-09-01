@@ -1,7 +1,7 @@
 <template>
   <section class="home">
     <v-row align="center">
-      <v-col v-for="(feature, index) in features" :key="index">
+      <v-col v-for="(feature, index) in features" :key="index" cols sm>
         <v-card>
           <v-card-title primary-title>{{feature.title}}</v-card-title>
           <v-card-text>{{feature.description}}</v-card-text>

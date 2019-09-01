@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <section class="tags">
     <v-btn v-for="(tag, index) in tags" :key="index" :to="tag.path" text>{{tag.name}}</v-btn>
-  </div>
+  </section>
 </template>
 
 <script>

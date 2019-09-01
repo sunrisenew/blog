@@ -2,15 +2,15 @@
 layout: Home
 features:
   -
-    title: 'Feature A'
-    description: 'This is the feature A'
+    title: '前端'
+    description: '以Browser与Node为基础的相关技术'
   -
-    title: 'Feature B'
-    description: 'This is the feature B'
+    title: '后端'
+    description: '以Java为基础的相关技术'
   -
-    title: 'Feature C'
-    description: 'This is the feature C'
+    title: '分享'
+    description: '学习过程中积累的小技巧与踩坑经历...'
   -
-    title: 'Feature D'
-    description: 'This is the feature D'
+    title: '随笔'
+    description: '漫谈'
 ---

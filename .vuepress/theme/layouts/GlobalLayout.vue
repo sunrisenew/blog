@@ -6,13 +6,14 @@
           <section class="d-flex flex-column full-height">
             <header class="header">
               <v-row align="center">
-                <v-col cols="auto">
+                <v-col cols sm>
                   <v-avatar>
                     <img :src="$withBase('/avatar.jpg')" alt="Avatar" />
                   </v-avatar>
-                  <v-btn href="/" text ml-1 class="hidden-sm-and-down">{{name}}</v-btn>
+                  <v-btn href="/" text>{{name}}</v-btn>
+                  <SearchBox></SearchBox>
                 </v-col>
-                <v-col cols="auto">
+                <v-col cols sm>
                   <nav v-for="(nav, index) in navs" :key="index">
                     <template v-if="!nav.items">
                       <v-btn
@@ -39,10 +40,6 @@
                     </v-menu>
                   </nav>
                 </v-col>
-                <v-spacer></v-spacer>
-                <v-col cols="auto">
-                  <SearchBox></SearchBox>
-                </v-col>
               </v-row>
             </header>
             <main class="main flex-1">
@@ -53,19 +50,21 @@
               </v-row>
             </main>
             <footer class="footer">
-              <v-row align="center">
-                <v-col>
-                  <section class="flex-layout-row-gap-center">
-                    <strong>Copyright &copy; 2018, sunrisenew</strong>
-                    <a href="http://www.miitbeian.gov.cn" target="_blank">陇ICP备17004549号</a>
-                    <a
-                      href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113"
-                      target="_blank"
-                    >
-                      <img style="float: left" :src="$withBase('/gov-license.png')" />
-                      <span style="float: right">甘公网安备 62062202000113号</span>
-                    </a>
-                  </section>
+              <v-row justify-sm="center" align="center">
+                <v-col cols sm>
+                  <strong>Copyright &copy; 2018, sunrisenew</strong>
+                </v-col>
+                <v-col cols sm>
+                  <a href="http://www.miitbeian.gov.cn" target="_blank">陇ICP备17004549号</a>
+                </v-col>
+                <v-col cols sm>
+                  <a
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113"
+                    target="_blank"
+                  >
+                    <img class="float-left" :src="$withBase('/gov-license.png')" />
+                    <span>甘公网安备 62062202000113号</span>
+                  </a>
                 </v-col>
               </v-row>
             </footer>
