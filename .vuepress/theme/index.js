@@ -10,7 +10,7 @@ module.exports = (themeConfig, context) => {
         keys: ['archive'],
         path: '/archives/',
         layout: 'Archives',
-        itemLayout: 'Archive',
+        scopeLayout: 'Archive',
         frontmatter: { title: '归档' },
         pagination: {
           sorter: (prevPage, nextPage) => {
@@ -25,7 +25,7 @@ module.exports = (themeConfig, context) => {
         keys: ['tag', 'tags'],
         path: '/tags/',
         layout: 'Tags',
-        itemLayout: 'Tag',
+        scopeLayout: 'Tag',
         frontmatter: { title: '标签' }
       }
     ]
@@ -42,10 +42,9 @@ module.exports = (themeConfig, context) => {
       ['@vuepress/blog', blogPluginOptions]
     ],
     extendPageData($page) {
-      let pagePath = $page.path || '';
-      blogPluginOptions.frontmatters.forEach(({ id, path, keys = [], itemLayout }) => {
-        let classifications = keys.reduce((result, key) => {
-          let classificationValue = $page.frontmatter[key] || [];
+      blogPluginOptions.frontmatters.forEach(({ id, keys = [] }) => {
+        const classifications = keys.reduce((result, key) => {
+          const classificationValue = $page.frontmatter[key] || [];
           if (Array.isArray(classificationValue)) {
             result = result.concat(classificationValue);
           } else {
@@ -57,10 +56,6 @@ module.exports = (themeConfig, context) => {
           name: classification,
           path: `/${id}/${classification}`
         }));
-
-        if (new RegExp(`^${path}.+/$`, 'g').test(pagePath)) {
-          $page.frontmatter.layout = itemLayout;
-        }
       });
     }
   };
