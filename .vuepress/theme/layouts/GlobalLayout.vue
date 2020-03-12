@@ -16,12 +16,7 @@
                 <v-col cols sm>
                   <nav v-for="(nav, index) in navs" :key="index">
                     <template v-if="!nav.items">
-                      <v-btn
-                        v-if="isExternal(nav.link)"
-                        :href="nav.link"
-                        target="_blank"
-                        text
-                      >{{nav.text}}</v-btn>
+                      <v-btn v-if="isExternal(nav.link)" :href="nav.link" target="_blank" text>{{nav.text}}</v-btn>
                       <v-btn v-else :to="nav.link" text>{{nav.text}}</v-btn>
                     </template>
                     <v-menu v-else open-on-hover offset-y light>
@@ -29,11 +24,7 @@
                         <v-btn v-on="on" :to="nav.link" text>{{nav.text}}</v-btn>
                       </template>
                       <v-list>
-                        <v-list-item
-                          v-for="item in nav.items"
-                          :key="item.text"
-                          @click="$router.push(item.link)"
-                        >
+                        <v-list-item v-for="item in nav.items" :key="item.text" @click="$router.push(item.link)">
                           <v-list-item-title>{{ item.text }}</v-list-item-title>
                         </v-list-item>
                       </v-list>
@@ -55,13 +46,10 @@
                   <strong>Copyright &copy; 2018, sunrisenew</strong>
                 </v-col>
                 <v-col cols sm>
-                  <a href="http://www.miitbeian.gov.cn" target="_blank">陇ICP备17004549号</a>
+                  <a href="http://www.beian.miit.gov.cn" target="_blank">陇ICP备17004549号</a>
                 </v-col>
                 <v-col cols sm>
-                  <a
-                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113"
-                    target="_blank"
-                  >
+                  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank">
                     <img class="float-left" :src="$withBase('/gov-license.png')" />
                     <span>甘公网安备 62062202000113号</span>
                   </a>
