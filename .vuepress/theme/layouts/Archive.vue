@@ -1,36 +1,33 @@
 <template>
   <section class="archive">
-    <v-row>
-      <v-col>
-        <p>
-          <center>
-            <h3>{{$currentArchives.key}}</h3>
-          </center>
-        </p>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col v-for="(page, index) in pages" :key="index" cols="6">
+    <h3 class="text-center">{{$currentArchives.key}}</h3>
+    <v-row dense>
+      <v-col v-for="(page, index) in pages" :key="index" sm="6">
         <page-overview :page="page"></page-overview>
       </v-col>
     </v-row>
+    <div class="d-flex justify-center">
+      <pagination></pagination>
+    </div>
   </section>
 </template>
 
 <script>
-import PageOverview from '@theme/components/PageOverview';
+import { Pagination } from '@vuepress/plugin-blog/lib/client/components'
+import PageOverview from '@theme/components/PageOverview'
 
 export default {
   name: 'Archive',
   components: {
+    Pagination,
     PageOverview
   },
   computed: {
     pages() {
-      return this.$pagination.pages || [];
+      return this.$pagination.pages || []
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped></style>

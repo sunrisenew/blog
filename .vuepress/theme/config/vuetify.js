@@ -1,9 +1,9 @@
-import 'vuetify/dist/vuetify.min.css';
-import Vuetify from 'vuetify';
-import colors from 'vuetify/lib/util/colors';
+import 'vuetify/dist/vuetify.min.css'
+import Vuetify from 'vuetify'
+import colors from 'vuetify/lib/util/colors'
 
 function install(Vue, options) {
-  Vue.use(Vuetify);
+  Vue.use(Vuetify)
   options && (Object.assign(options, {
     vuetify: new Vuetify({
       theme: {
@@ -14,9 +14,9 @@ function install(Vue, options) {
         }
       }
     })
-  }));
+  }))
 }
 
 export default {
   install
-};
+}

@@ -10,8 +10,9 @@ module.exports = {
   plugins: [
     ['serve', {
       staticOptions: {
-        dotfiles: 'allow',
+        dotfiles: 'allow'
       },
+      notFoundPath: ''
     }]
   ],
   markdown: {
@@ -24,6 +25,7 @@ module.exports = {
       { text: '归档', link: '/archives' },
       { text: '标签', link: '/tags' },
       { text: 'GitHub', link: 'https://github.com/sunrisenew' }
-    ]
+    ],
+    lastUpdated: true
   }
-};
+}

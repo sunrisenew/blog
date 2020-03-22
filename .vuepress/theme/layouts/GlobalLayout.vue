@@ -1,19 +1,19 @@
 <template>
   <ClientOnly>
     <v-app>
-      <v-row justify="center">
+      <v-row class="ma-0" justify="center" dense>
         <v-col cols="10">
           <section class="d-flex flex-column full-height">
             <header class="header">
-              <v-row align="center">
-                <v-col cols sm>
+              <v-row align="center" dense>
+                <v-col cols="auto">
                   <v-avatar>
                     <img :src="$withBase('/avatar.jpg')" alt="Avatar" />
                   </v-avatar>
                   <v-btn href="/" text>{{name}}</v-btn>
                   <SearchBox></SearchBox>
                 </v-col>
-                <v-col cols sm>
+                <v-col cols="auto">
                   <nav v-for="(nav, index) in navs" :key="index">
                     <template v-if="!nav.items">
                       <v-btn v-if="isExternal(nav.link)" :href="nav.link" target="_blank" text>{{nav.text}}</v-btn>
@@ -33,22 +33,19 @@
                 </v-col>
               </v-row>
             </header>
+            <v-divider class="ma-2"></v-divider>
             <main class="main flex-1">
-              <v-row align="center">
-                <v-col>
-                  <component :is="layout"></component>
-                </v-col>
-              </v-row>
+              <component :is="layout"></component>
             </main>
             <footer class="footer">
-              <v-row justify-sm="center" align="center">
-                <v-col cols sm>
+              <v-row justify="center" align="center" dense>
+                <v-col cols="auto">
                   <strong>Copyright &copy; 2018, sunrisenew</strong>
                 </v-col>
-                <v-col cols sm>
+                <v-col cols="auto">
                   <a href="http://www.beian.miit.gov.cn" target="_blank">陇ICP备17004549号</a>
                 </v-col>
-                <v-col cols sm>
+                <v-col cols="auto">
                   <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank">
                     <img class="float-left" :src="$withBase('/gov-license.png')" />
                     <span>甘公网安备 62062202000113号</span>
@@ -64,8 +61,8 @@
 </template>
 
 <script>
-import SearchBox from '@SearchBox';
-import { isExternal } from '@parent-theme/util';
+import SearchBox from '@SearchBox'
+import { isExternal } from '@parent-theme/util'
 
 export default {
   name: 'GlobalLayout',
@@ -75,21 +72,21 @@ export default {
   computed: {
     layout() {
       if (this.$page.path) {
-        return this.$frontmatter.layout || 'Layout';
+        return this.$frontmatter.layout || 'Layout'
       }
-      return 'NotFound';
+      return 'NotFound'
     },
     name() {
-      return this.$themeConfig.name;
+      return this.$themeConfig.name
     },
     navs() {
-      return this.$themeConfig.navs || [];
+      return this.$themeConfig.navs || []
     },
     isExternal() {
-      return path => isExternal(path);
+      return path => isExternal(path)
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped></style>
