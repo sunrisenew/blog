@@ -1,24 +1,28 @@
 module.exports = (themeConfig, context) => {
   const searchPluginOptions = {
     searchMaxSuggestions: 10
-  };
+  }
+
+  const paginationOptions = {
+    prevText: '上一页',
+    nextText: '下一页',
+    sorter: (prevPage, nextPage) => {
+      const prevValue = prevPage.created
+      const nextValue = nextPage.created
+      return prevValue === nextValue ? 0 : (prevValue > nextValue ? 1 : -1)
+    }
+  }
 
   const blogPluginOptions = {
     frontmatters: [
       {
         id: 'archives',
-        keys: ['archive'],
+        keys: ['created'],
         path: '/archives/',
         layout: 'Archives',
         scopeLayout: 'Archive',
         frontmatter: { title: '归档' },
-        pagination: {
-          sorter: (prevPage, nextPage) => {
-            let prevValue = prevPage.frontmatter.createDate;
-            let nextValue = nextPage.frontmatter.createDate;
-            return prevValue === nextValue ? 0 : (prevValue > nextValue ? 1 : -1);
-          }
-        }
+        pagination: paginationOptions
       },
       {
         id: 'tags',
@@ -26,10 +30,11 @@ module.exports = (themeConfig, context) => {
         path: '/tags/',
         layout: 'Tags',
         scopeLayout: 'Tag',
-        frontmatter: { title: '标签' }
+        frontmatter: { title: '标签' },
+        pagination: paginationOptions
       }
     ]
-  };
+  }
 
   return {
     extend: '@vuepress/theme-default',
@@ -44,19 +49,20 @@ module.exports = (themeConfig, context) => {
     extendPageData($page) {
       blogPluginOptions.frontmatters.forEach(({ id, keys = [] }) => {
         const classifications = keys.reduce((result, key) => {
-          const classificationValue = $page.frontmatter[key] || [];
+          const classificationValue = $page.frontmatter[key] || []
           if (Array.isArray(classificationValue)) {
-            result = result.concat(classificationValue);
+            result = result.concat(classificationValue)
           } else {
-            result.push(classificationValue);
+            result.push(classificationValue)
           }
-          return result;
-        }, []);
+          return result
+        }, [])
         $page[`all${id[0].toUpperCase()}${id.substr(1)}`] = classifications.map(classification => ({
           name: classification,
           path: `/${id}/${classification}`
-        }));
-      });
+        }))
+      })
+      $page['created'] = $page.frontmatter.created
     }
-  };
-};
+  }
+}

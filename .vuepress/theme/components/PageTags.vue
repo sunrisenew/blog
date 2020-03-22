@@ -1,14 +1,12 @@
 <template>
-  <section>
-    <p>
-      <span>标签:</span>
-      <v-btn v-for="(tag, index) in pageTags" :key="index" :to="tag.path" text>{{tag.name}}</v-btn>
-    </p>
+  <section class="d-inline-flex align-center">
+    <span class="mr-2">标签:</span>
+    <v-btn v-for="(tag, index) in pageTags" :key="index" :to="tag.path" text small rounded>{{tag.name}}</v-btn>
   </section>
 </template>
 
 <script>
-import { getAllClassificationsName } from '@theme/util';
+import { getAllClassificationsName } from '@theme/util'
 
 export default {
   name: 'PageTags',
@@ -20,9 +18,9 @@ export default {
   },
   computed: {
     pageTags() {
-      return this.page[getAllClassificationsName('tags')] || [];
+      return this.page[getAllClassificationsName('tags')] || []
     }
   }
-};
+}
 </script>
 <style lang="stylus" scoped></style>

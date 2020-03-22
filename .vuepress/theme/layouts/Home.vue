@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <v-row align="center">
+    <v-row align="center" dense>
       <v-col v-for="(feature, index) in features" :key="index" cols sm>
         <v-card>
           <v-card-title primary-title>{{feature.title}}</v-card-title>
@@ -8,7 +8,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-divider></v-divider>
+    <v-divider class="ma-2"></v-divider>
     <article>
       <Content class="theme-default-content"></Content>
     </article>
@@ -16,15 +16,14 @@
 </template>
 
 <script>
-
 export default {
   name: 'Home',
   computed: {
     features() {
-      return this.$frontmatter.features || [];
+      return this.$frontmatter.features || []
     }
-  },
-};
+  }
+}
 </script>
 
 <style lang="stylus" scoped></style>
