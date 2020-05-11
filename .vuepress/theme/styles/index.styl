@@ -11,3 +11,19 @@ html
 
 h1, h2, h3, h4, h5, h6
   color: $accentColor
+
+.search-box .suggestions
+  z-index: 1
+
+div[class*='language-']
+  .highlight-lines
+    padding-top: 1em
+    line-height: 1.5
+
+  &.line-numbers-mode
+    .line-numbers-wrapper
+      padding: 1em 0
+      line-height: 1.5
+
+      .line-number
+        font-size: 85%
