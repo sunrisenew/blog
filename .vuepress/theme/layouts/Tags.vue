@@ -1,5 +1,5 @@
 <template>
-  <section class="tags d-flex justify-center">
+  <section class="tags d-flex justify-center flex-wrap">
     <v-btn v-for="(tag, index) in tags" :key="index" :to="tag.path" text rounded>{{`${tag.name}(${tag.pages.length})`}}</v-btn>
   </section>
 </template>

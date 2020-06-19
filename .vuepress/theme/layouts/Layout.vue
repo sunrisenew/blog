@@ -1,16 +1,12 @@
 <template>
   <article>
-    <h1>
-      <center>
-        <span>{{$page.title}}</span>
-      </center>
-    </h1>
+    <h1 class="text-center">{{$page.title}}</h1>
     <div class="d-flex justify-space-between flex-wrap">
       <page-tags :page="$page"></page-tags>
-      <div>
+      <div class="d-flex align-center">
         <template v-if="$page.created">
           <span>创建时间:</span>
-          <v-btn :to="`/archives/${$page.created}`" text small>{{$page.created}}</v-btn>
+          <v-btn :to="`/archives/${$page.archive}`" text small>{{$page.created}}</v-btn>
         </template>
         <template v-if="$page.lastUpdated">
           <span>更新时间:</span>

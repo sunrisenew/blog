@@ -8,7 +8,7 @@
               <v-row align="center" dense>
                 <v-col cols="auto">
                   <v-avatar>
-                    <img :src="$withBase('/avatar.jpg')" alt="Avatar" />
+                    <img :src="$withBase('/images/avatar.png')" alt="Avatar" />
                   </v-avatar>
                   <v-btn href="/" text>{{name}}</v-btn>
                   <SearchBox></SearchBox>
@@ -43,11 +43,11 @@
                   <strong>Copyright &copy; 2018, sunrisenew</strong>
                 </v-col>
                 <v-col cols="auto">
-                  <a href="http://www.beian.miit.gov.cn" target="_blank">陇ICP备17004549号</a>
+                  <a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">陇ICP备17004549号</a>
                 </v-col>
                 <v-col cols="auto">
-                  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank">
-                    <img class="float-left" :src="$withBase('/gov-license.png')" />
+                  <a class="d-flex align-center" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank" rel="noopener noreferrer">
+                    <img :src="$withBase('/images/gov-license.png')" alt="" />
                     <span>甘公网安备 62062202000113号</span>
                   </a>
                 </v-col>

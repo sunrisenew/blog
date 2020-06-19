@@ -15,7 +15,7 @@
 
 <script>
 import PageOverview from '@theme/components/PageOverview'
-import { negativeSorter } from '@theme/util'
+const { negativeSort } = require('@theme/util')
 
 export default {
   name: 'Archives',
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     archives() {
-      return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSorter(prev.name, next.name))
+      return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSort(prev.name, next.name))
     },
     notEmpty() {
       return this.archives && this.archives.length > 0
