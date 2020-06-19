@@ -1,10 +1,15 @@
 module.exports = {
   dest: 'docs',
   evergreen: true,
-  title: 'SunRiseNew',
-  description: 'SunRiseNew Blog',
+  title: 'sunrisenew',
+  description: 'sunrisenew blog',
+  locales: {
+    '/': {
+      lang: 'zh-CN'
+    }
+  },
   head: [
-    ['link', { rel: 'icon', href: '/avatar.jpg' }],
+    ['link', { rel: 'icon', href: '/images/avatar.png' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' }]
   ],
   plugins: [
@@ -19,13 +24,12 @@ module.exports = {
     lineNumbers: true
   },
   themeConfig: {
-    name: 'SunRiseNew',
+    name: 'sunrisenew',
     navs: [
       { text: '首页', link: '/' },
       { text: '归档', link: '/archives' },
       { text: '标签', link: '/tags' },
       { text: 'GitHub', link: 'https://github.com/sunrisenew' }
-    ],
-    lastUpdated: true
+    ]
   }
 }

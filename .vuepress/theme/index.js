@@ -1,3 +1,7 @@
+const {
+  dateOptions
+} = require('./util')
+
 module.exports = (themeConfig, context) => {
   const searchPluginOptions = {
     searchMaxSuggestions: 10
@@ -17,7 +21,7 @@ module.exports = (themeConfig, context) => {
     frontmatters: [
       {
         id: 'archives',
-        keys: ['created'],
+        keys: ['archive'],
         path: '/archives/',
         layout: 'Archives',
         scopeLayout: 'Archive',
@@ -40,29 +44,19 @@ module.exports = (themeConfig, context) => {
     extend: '@vuepress/theme-default',
     globalLayout: 'GlobalLayout.vue',
     plugins: [
+      [require('./plugins/created'), {
+        dateOptions
+      }],
+      [require('./plugins/classification'), {
+        blogPluginOptions
+      }],
       'medium-zoom',
       'reading-progress',
       'reading-time',
       ['@vuepress/search', searchPluginOptions],
-      ['@vuepress/blog', blogPluginOptions]
-    ],
-    extendPageData($page) {
-      blogPluginOptions.frontmatters.forEach(({ id, keys = [] }) => {
-        const classifications = keys.reduce((result, key) => {
-          const classificationValue = $page.frontmatter[key] || []
-          if (Array.isArray(classificationValue)) {
-            result = result.concat(classificationValue)
-          } else {
-            result.push(classificationValue)
-          }
-          return result
-        }, [])
-        $page[`all${id[0].toUpperCase()}${id.substr(1)}`] = classifications.map(classification => ({
-          name: classification,
-          path: `/${id}/${classification}`
-        }))
-      })
-      $page['created'] = $page.frontmatter.created
-    }
+      ['@vuepress/last-updated', {
+        dateOptions
+      }]
+    ]
   }
 }

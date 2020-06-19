@@ -1,15 +1,27 @@
-export function positiveSorter(prevValue, nextValue) {
+function positiveSort(prevValue, nextValue) {
   return prevValue === nextValue ? 0 : (prevValue > nextValue ? 1 : -1)
 }
 
-export function negativeSorter(prevValue, nextValue) {
+function negativeSort(prevValue, nextValue) {
   return prevValue === nextValue ? 0 : (prevValue < nextValue ? 1 : -1)
 }
 
-export function upperFirst(str) {
+function upperFirst(str) {
   return str && `${str[0].toUpperCase()}${str.substr(1)}`
 }
 
-export function getAllClassificationsName(name) {
+function getAllClassificationsName(name) {
   return `all${upperFirst(name)}`
+}
+
+const dateOptions = {
+  hour12: false
+}
+
+module.exports = {
+  positiveSort,
+  negativeSort,
+  upperFirst,
+  getAllClassificationsName,
+  dateOptions
 }
