@@ -31,5 +31,11 @@ module.exports = {
       { text: '标签', link: '/tags' },
       { text: 'GitHub', link: 'https://github.com/sunrisenew' }
     ]
+  },
+  chainWebpack: (config, isServer) => {
+    // Add CDN jsDelivr.
+    if (process.env.NODE_ENV === 'production') {
+      config.output.publicPath('https://cdn.jsdelivr.net/gh/sunrisenew/blog/docs/')
+    }
   }
 }
