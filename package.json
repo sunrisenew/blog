@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunrisenew/sunrisenew.github.io.git"
+    "url": "git+https://github.com/sunrisenew/blog.git"
   },
   "keywords": [
     "sunrisenew",
@@ -21,14 +21,14 @@
   "author": "sunrisenew",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sunrisenew/sunrisenew.github.io/issues"
+    "url": "https://github.com/sunrisenew/blog/issues"
   },
-  "homepage": "https://github.com/sunrisenew/sunrisenew.github.io#readme",
+  "homepage": "https://github.com/sunrisenew/blog#readme",
   "dependencies": {
     "vuepress-plugin-medium-zoom": "^1.1.8",
-    "vuepress-plugin-reading-progress": "^1.0.9",
+    "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-reading-time": "^0.1.1",
-    "vuetify": "^2.3.1"
+    "vuetify": "^2.3.5"
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
