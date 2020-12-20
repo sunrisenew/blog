@@ -25,17 +25,17 @@
   },
   "homepage": "https://github.com/sunrisenew/blog#readme",
   "dependencies": {
-    "vuepress-plugin-medium-zoom": "^1.1.8",
+    "vuepress-plugin-medium-zoom": "^1.1.9",
     "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-reading-time": "^0.1.1",
-    "vuetify": "^2.3.5"
+    "vuetify": "^2.3.21"
   },
   "devDependencies": {
-    "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/plugin-blog": "^1.9.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vuepress": "^1.5.2",
-    "vuepress-plugin-serve": "^2.0.3"
+    "vuepress": "^1.7.1",
+    "vuepress-plugin-serve": "^2.0.4"
   }
 }
