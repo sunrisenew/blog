@@ -1,8 +1,8 @@
 <template>
   <section class="home">
-    <v-row align="center" dense>
+    <v-row align="stretch" dense>
       <v-col v-for="(feature, index) in features" :key="index" cols sm>
-        <v-card>
+        <v-card height="100%">
           <v-card-title primary-title>{{feature.title}}</v-card-title>
           <v-card-text>{{feature.description}}</v-card-text>
         </v-card>

@@ -3,15 +3,15 @@
     <h1 class="text-center">{{$page.title}}</h1>
     <div class="d-flex justify-space-between flex-wrap">
       <page-tags :page="$page"></page-tags>
-      <div class="d-flex align-center">
-        <template v-if="$page.created">
+      <div class="d-flex align-center flex-wrap">
+        <div v-if="$page.created" class="d-flex align-center">
           <span>创建时间:</span>
           <v-btn :to="`/archives/${$page.archive}`" text small>{{$page.created}}</v-btn>
-        </template>
-        <template v-if="$page.lastUpdated">
+        </div>
+        <div v-if="$page.lastUpdated" class="d-flex align-center">
           <span>更新时间:</span>
           <v-btn text small>{{$page.lastUpdated}}</v-btn>
-        </template>
+        </div>
       </div>
     </div>
     <Content class="theme-default-content"></Content>
