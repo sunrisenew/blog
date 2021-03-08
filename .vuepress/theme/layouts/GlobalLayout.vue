@@ -8,7 +8,7 @@
               <v-row align="center" dense>
                 <v-col cols="auto">
                   <v-avatar>
-                    <img :src="$withBase('/images/avatar.png')" alt="Avatar" />
+                    <img :src="$withCdn('/images/avatar.png')" alt="Avatar" />
                   </v-avatar>
                   <v-btn href="/" text>{{name}}</v-btn>
                   <SearchBox></SearchBox>
@@ -47,7 +47,7 @@
                 </v-col>
                 <v-col cols="auto">
                   <a class="d-flex align-center" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank" rel="noopener noreferrer">
-                    <img :src="$withBase('/images/gov-license.png')" alt="" />
+                    <img :src="$withCdn('/images/gov-license.png')" alt="" />
                     <span>甘公网安备 62062202000113号</span>
                   </a>
                 </v-col>
