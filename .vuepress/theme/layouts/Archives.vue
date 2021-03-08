@@ -1,6 +1,6 @@
 <template>
   <section class="archives">
-    <v-timeline v-if="notEmpty">
+    <v-timeline v-if="notEmpty" :dense="$vuetify.breakpoint.xsOnly">
       <v-timeline-item v-for="(archive, archiveIndex) in archives" :key="archiveIndex" small>
         <template v-slot:opposite>
           <h3>

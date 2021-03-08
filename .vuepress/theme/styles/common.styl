@@ -8,10 +8,6 @@
   background-color: $accentColor
   border-radius: 9999px
 
-html
-  @media (max-width: 600px)
-    font-size: $fontSizeMd
-
 h1, h2, h3, h4, h5, h6
   color: $accentColor
 
@@ -22,6 +18,9 @@ p
     font-family: inherit
     user-select: all
     white-space: nowrap
+
+.theme-default-content div[class*="language-"]
+  margin: 1rem 0
 
 .search-box .suggestions
   z-index: 1
