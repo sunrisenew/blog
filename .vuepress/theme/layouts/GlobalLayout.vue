@@ -3,7 +3,7 @@
     <v-app>
       <v-row class="ma-0" justify="center" dense>
         <v-col cols="10">
-          <section class="d-flex flex-column full-height">
+          <section class="d-flex flex-column py-2 full-height">
             <header class="header">
               <v-row align="center" dense>
                 <v-col cols="auto">
@@ -33,7 +33,7 @@
                 </v-col>
               </v-row>
             </header>
-            <v-divider class="ma-2"></v-divider>
+            <v-divider class="my-2"></v-divider>
             <main class="main flex-1">
               <component :is="layout"></component>
             </main>
