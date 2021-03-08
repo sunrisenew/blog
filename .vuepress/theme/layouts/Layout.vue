@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="article">
     <h1 class="text-center">{{$page.title}}</h1>
     <div class="d-flex justify-space-between flex-wrap">
       <page-tags :page="$page"></page-tags>
@@ -29,4 +29,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.article
+  .theme-default-content
+    padding: 2rem 0
+</style>
