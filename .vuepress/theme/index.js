@@ -1,4 +1,7 @@
 const {
+  BASE_CDN_URL
+} = require('./constant')
+const {
   dateOptions
 } = require('./util')
 
@@ -44,6 +47,9 @@ module.exports = (themeConfig, context) => {
     extend: '@vuepress/theme-default',
     globalLayout: 'GlobalLayout.vue',
     plugins: [
+      [require('./plugins/cdn'), {
+        baseCdnUrl: BASE_CDN_URL
+      }],
       [require('./plugins/created'), {
         dateOptions
       }],

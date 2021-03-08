@@ -1,3 +1,8 @@
+const {
+  BASE_CDN_DOMAIN,
+  BASE_CDN_URL
+} = require('./theme/constant')
+
 module.exports = {
   dest: 'docs',
   evergreen: true,
@@ -9,8 +14,8 @@ module.exports = {
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/images/avatar.png' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' }]
+    ['link', { rel: 'icon', href: `${BASE_CDN_URL}/images/avatar.png` }],
+    ['link', { rel: 'stylesheet', href: `${BASE_CDN_DOMAIN}/npm/@mdi/font@latest/css/materialdesignicons.min.css` }]
   ],
   plugins: [
     ['serve', {
@@ -35,7 +40,7 @@ module.exports = {
   chainWebpack: (config, isServer) => {
     // Add CDN jsDelivr.
     if (process.env.NODE_ENV === 'production') {
-      config.output.publicPath('https://cdn.jsdelivr.net/gh/sunrisenew/blog/docs/')
+      config.output.publicPath(`${BASE_CDN_URL}/`)
     }
   }
 }
