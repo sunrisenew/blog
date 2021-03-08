@@ -34,7 +34,7 @@
               </v-row>
             </header>
             <v-divider class="my-2"></v-divider>
-            <main class="main flex-1">
+            <main class="main flex-grow-1">
               <component :is="layout"></component>
             </main>
             <footer class="footer">
