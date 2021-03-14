@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     archives() {
-      return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSort(prev.name, next.name))
+      return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSort(Date.parse(prev.name), Date.parse(next.name)))
     },
     notEmpty() {
       return this.archives && this.archives.length > 0

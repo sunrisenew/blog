@@ -14,9 +14,9 @@ module.exports = (themeConfig, context) => {
     prevText: '上一页',
     nextText: '下一页',
     sorter: (prevPage, nextPage) => {
-      const prevValue = prevPage.created
-      const nextValue = nextPage.created
-      return prevValue === nextValue ? 0 : (prevValue > nextValue ? 1 : -1)
+      const prevValue = prevPage.created ? Date.parse(prevPage.created) : Infinity
+      const nextValue = nextPage.created ? Date.parse(nextPage.created) : Infinity
+      return prevValue === nextValue ? 0 : (prevValue < nextValue ? 1 : -1)
     }
   }
 
