@@ -1,7 +1,15 @@
 <template>
   <ClientOnly>
-    <v-app>
-      <v-row class="ma-0" justify="center" dense>
+    <v-app class="application">
+      <canvas class="background full-size"></canvas>
+      <script :src="$withCdn('/scripts/background.js')" defer></script>
+      <div v-if="!unveiled" class="curtain d-flex justify-center align-center full-size">
+        <div class="d-flex flex-column justify-center align-center px-16 py-8 elevation-12 rounded-xl">
+          <h1 class="text-sm-h1 text-xs-h6">SUNRISENEW</h1>
+          <v-btn color="primary" x-large plain text @click="unveil()">开始</v-btn>
+        </div>
+      </div>
+      <v-row v-else class="foreground ma-0" justify="center" dense>
         <v-col cols="10">
           <section class="d-flex flex-column py-2 full-height">
             <header class="header">
@@ -69,6 +77,11 @@ export default {
   components: {
     SearchBox
   },
+  data() {
+    return {
+      unveiled: this.$route.path !== '/'
+    }
+  },
   computed: {
     layout() {
       if (this.$page.path) {
@@ -85,8 +98,27 @@ export default {
     isExternal() {
       return path => isExternal(path)
     }
+  },
+  methods: {
+    unveil() {
+      this.unveiled = true
+    }
   }
 }
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.application
+  position: relative
+  z-index: 0
+
+  .background
+    position: absolute
+    z-index: -1
+
+  .curtain
+    user-select: none
+
+  .foreground
+    background: none
+</style>
