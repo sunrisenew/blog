@@ -6,6 +6,7 @@ function install(Vue, options) {
   options && (Object.assign(options, {
     vuetify: new Vuetify({
       theme: {
+        dark: true,
         disable: true
       }
     })
