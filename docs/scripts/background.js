@@ -959,7 +959,7 @@ SOFTWARE.
   let sunrays
   let sunraysTemp
 
-  let ditheringTexture = createTextureAsync(`${window.BASE_CDN_URL}/images/LDR_LLL1_0.png`)
+  let ditheringTexture = createTextureAsync(`${window.BASE_CDN_URL}/images/background.png`)
 
   const blurProgram = new Program(blurVertexShader, blurShader)
   const copyProgram = new Program(baseVertexShader, copyShader)
@@ -1147,6 +1147,7 @@ SOFTWARE.
     }
 
     let image = new Image()
+    image.crossOrigin = 'Anonymous'
     image.onload = () => {
       obj.width = image.width
       obj.height = image.height
