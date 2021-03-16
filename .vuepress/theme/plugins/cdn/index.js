@@ -3,8 +3,16 @@ const { resolve } = require('path')
 
 module.exports = (options = {}, context) => ({
   name: 'vuepress-plugin-cdn',
-  enhanceAppFiles: () => ({
-    name: 'cdn-enhance-app',
-    content: fs.readFileSync(resolve(__dirname, 'enhanceApp.js'), 'utf-8').replace('${options.baseCdnUrl}', options.baseCdnUrl)
-  })
+  enhanceAppFiles: () => {
+    let content = fs.readFileSync(resolve(__dirname, 'enhanceApp.js'), 'utf-8')
+    Object.entries(options).forEach(([key, value]) => {
+      const regexp = new RegExp(`options\\.${key}`, 'g')
+      content = content.replace(regexp, `'${value}'`)
+    })
+
+    return {
+      content,
+      name: 'cdn-enhance-app'
+    }
+  }
 })
