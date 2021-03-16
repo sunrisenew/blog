@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   head: [
-    ['link', { rel: 'icon', href: `${BASE_CDN_URL}/images/avatar.png` }],
+    ['link', { rel: 'icon', href: `${process.env.NODE_ENV === 'production' ? BASE_CDN_URL : ''}/images/avatar.png` }],
     ['link', { rel: 'stylesheet', href: `${BASE_CDN_DOMAIN}/npm/@mdi/font@latest/css/materialdesignicons.min.css` }]
   ],
   plugins: [
