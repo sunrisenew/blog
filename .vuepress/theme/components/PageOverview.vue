@@ -5,7 +5,7 @@
     </a>
     <div v-if="page.created">
       <span>创建时间:</span>
-      <v-btn :to="`/archives/${page.archive}`" text small>{{page.created}}</v-btn>
+      <v-btn :to="`/archives/${page.archive}`" text small>{{$formatDate(page.created)}}</v-btn>
     </div>
     <page-tags :page="page"></page-tags>
     <p v-if="page.excerpt" v-html="page.excerpt"></p>

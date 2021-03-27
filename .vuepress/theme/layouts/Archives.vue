@@ -7,7 +7,7 @@
             <a :href="archive.path">{{archive.name}}</a>
           </h3>
         </template>
-        <page-overview v-for="(page, pageIndex) in archive.pages" :key="pageIndex" :page="page"></page-overview>
+        <page-overview v-for="(page, pageIndex) in sortPages(archive.pages)" :key="pageIndex" :page="page"></page-overview>
       </v-timeline-item>
     </v-timeline>
   </section>
@@ -15,7 +15,7 @@
 
 <script>
 import PageOverview from '@theme/components/PageOverview'
-const { negativeSort } = require('@theme/util')
+import { negativeSort } from '@theme/util'
 
 export default {
   name: 'Archives',
@@ -24,10 +24,16 @@ export default {
   },
   computed: {
     archives() {
-      return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSort(Date.parse(prev.name), Date.parse(next.name)))
+      return (this.$frontmatterKey.list || []).sort((prev, next) => negativeSort(prev.name, next.name))
     },
     notEmpty() {
       return this.archives && this.archives.length > 0
+    }
+  },
+  methods: {
+    sortPages(pages) {
+      pages.sort((prev, next) => negativeSort(prev.created, next.created))
+      return pages
     }
   }
 }
