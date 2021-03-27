@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getAllClassificationsName } from '@theme/util'
+import { buildAllClassificationsName } from '@theme/util'
 
 export default {
   name: 'PageTags',
@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     pageTags() {
-      return this.page[getAllClassificationsName('tags')] || []
+      return this.page[buildAllClassificationsName('tags')] || []
     }
   }
 }

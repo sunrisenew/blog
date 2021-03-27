@@ -1,11 +1,11 @@
 <template>
   <ClientOnly>
-    <v-app class="application">
+    <v-app class="application" id="application">
       <canvas class="background full-size"></canvas>
       <script :src="$withCdn('/scripts/background.js')" defer></script>
       <div v-if="!unveiled" class="curtain d-flex justify-center align-center full-size">
         <div class="d-flex flex-column justify-center align-center px-16 py-8 elevation-12 rounded-xl">
-          <h1 class="text-sm-h1 text-xs-h6">SUNRISENEW</h1>
+          <h1 class="text-sm-h1 text-h6">SUNRISENEW</h1>
           <v-btn color="primary" x-large plain text @click="unveil()">开始</v-btn>
         </div>
       </div>

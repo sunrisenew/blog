@@ -10,18 +10,18 @@ function upperFirst(str) {
   return str && `${str[0].toUpperCase()}${str.substr(1)}`
 }
 
-function getAllClassificationsName(name) {
-  return `all${upperFirst(name)}`
+function timestampTransformer(timestamp, lang, dateOptions) {
+  return timestamp
 }
 
-const dateOptions = {
-  hour12: false
+function buildAllClassificationsName(name) {
+  return `all${upperFirst(name)}`
 }
 
 module.exports = {
   positiveSort,
   negativeSort,
   upperFirst,
-  getAllClassificationsName,
-  dateOptions
+  timestampTransformer,
+  buildAllClassificationsName
 }

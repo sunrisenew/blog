@@ -6,11 +6,11 @@
       <div class="d-flex align-center flex-wrap">
         <div v-if="$page.created" class="d-flex align-center">
           <span>创建时间:</span>
-          <v-btn :to="`/archives/${$page.archive}`" text small>{{$page.created}}</v-btn>
+          <v-btn :to="`/archives/${$page.archive}`" text small>{{$formatDate($page.created)}}</v-btn>
         </div>
         <div v-if="$page.lastUpdated" class="d-flex align-center">
           <span>更新时间:</span>
-          <v-btn text small>{{$page.lastUpdated}}</v-btn>
+          <v-btn text small>{{$formatDate($page.lastUpdated)}}</v-btn>
         </div>
       </div>
     </div>

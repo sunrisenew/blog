@@ -2,7 +2,7 @@ const {
   BASE_CDN_URL
 } = require('./constant')
 const {
-  dateOptions
+  timestampTransformer
 } = require('./util')
 
 module.exports = (themeConfig, context) => {
@@ -14,8 +14,8 @@ module.exports = (themeConfig, context) => {
     prevText: '上一页',
     nextText: '下一页',
     sorter: (prevPage, nextPage) => {
-      const prevValue = prevPage.created ? Date.parse(prevPage.created) : Infinity
-      const nextValue = nextPage.created ? Date.parse(nextPage.created) : Infinity
+      const prevValue = prevPage.created || Infinity
+      const nextValue = nextPage.created || Infinity
       return prevValue === nextValue ? 0 : (prevValue < nextValue ? 1 : -1)
     }
   }
@@ -51,7 +51,7 @@ module.exports = (themeConfig, context) => {
         baseCdnUrl: BASE_CDN_URL
       }],
       [require('./plugins/created'), {
-        dateOptions
+        transformer: timestampTransformer
       }],
       [require('./plugins/classification'), {
         blogPluginOptions
@@ -61,7 +61,7 @@ module.exports = (themeConfig, context) => {
       'reading-time',
       ['@vuepress/search', searchPluginOptions],
       ['@vuepress/last-updated', {
-        dateOptions
+        transformer: timestampTransformer
       }]
     ]
   }

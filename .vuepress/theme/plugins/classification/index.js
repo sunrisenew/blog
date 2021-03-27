@@ -1,5 +1,9 @@
+const dayjs = require('../../config/dayjs')
 const {
-  getAllClassificationsName
+  YEAR_MONTH_FORMAT
+} = require('../../constant')
+const {
+  buildAllClassificationsName
 } = require('../../util')
 
 module.exports = (options = {}, context) => ({
@@ -8,9 +12,12 @@ module.exports = (options = {}, context) => ({
     ['@vuepress/blog', options.blogPluginOptions]
   ],
   extendPageData($page) {
-    const { blogPluginOptions = {
-      frontmatters: []
-    } } = options
+    const {
+      blogPluginOptions = {
+        frontmatters: []
+      },
+      archiveFormat = YEAR_MONTH_FORMAT
+    } = options
     blogPluginOptions.frontmatters.forEach(({ id, keys = [] }) => {
       const classifications = keys.reduce((result, key) => {
         const classificationValue = $page[key] || $page.frontmatter[key] || []
@@ -21,13 +28,13 @@ module.exports = (options = {}, context) => ({
         }
         return result
       }, [])
-      $page[getAllClassificationsName(id)] = classifications.map(classification => ({
+      $page[buildAllClassificationsName(id)] = classifications.map(classification => ({
         name: classification,
         path: `/${id}/${classification}`
       }))
     })
     if ($page.path !== '/' && $page.created) {
-      $page.archive = $page.frontmatter.archive = new Date($page.created).toLocaleDateString($page._computed.$lang)
+      $page.archive = $page.frontmatter.archive = dayjs($page.created).format(archiveFormat)
     }
   }
 })
