@@ -6,7 +6,7 @@
   "scripts": {
     "start": "vuepress dev",
     "build": "vuepress build",
-    "serve": "vuepress serve --build",
+    "serve": "vuepress serve",
     "debug": "vuepress dev --debug"
   },
   "repository": {
@@ -28,7 +28,7 @@
     "vuepress-plugin-medium-zoom": "^1.1.9",
     "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-reading-time": "^0.1.1",
-    "vuetify": "^2.4.6"
+    "vuetify": "^2.4.8"
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.4",
