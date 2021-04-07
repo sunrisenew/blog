@@ -3,23 +3,30 @@
 
 ::-webkit-scrollbar
   width: 5px
-  height 5px
+  height: 5px
+
 ::-webkit-scrollbar-thumb
-  background-color: $accentColor
   border-radius: 9999px
+  background-color: $accentColor
 
 h1, h2, h3, h4, h5, h6
   color: $accentColor
 
 p
-  text-indent: 2em
   text-align: justify
+  text-indent: 2em
+
   code
+    white-space: nowrap
     font-family: inherit
     user-select: all
-    white-space: nowrap
 
-.theme-default-content div[class*="language-"]
+table
+  tbody
+    tr:nth-child(2n)
+      background-color: initial
+
+.theme-default-content div[class*='language-']
   margin: 1rem 0
 
 .search-box .suggestions

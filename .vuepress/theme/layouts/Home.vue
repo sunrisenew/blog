@@ -1,14 +1,5 @@
 <template>
   <section class="home">
-    <v-row align="stretch" dense>
-      <v-col v-for="(feature, index) in features" :key="index" cols sm>
-        <v-card height="100%">
-          <v-card-title primary-title>{{feature.title}}</v-card-title>
-          <v-card-text>{{feature.description}}</v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-divider class="ma-2"></v-divider>
     <article>
       <Content class="theme-default-content"></Content>
     </article>
@@ -17,12 +8,7 @@
 
 <script>
 export default {
-  name: 'Home',
-  computed: {
-    features() {
-      return this.$frontmatter.features || []
-    }
-  }
+  name: 'Home'
 }
 </script>
 
