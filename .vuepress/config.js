@@ -30,10 +30,12 @@ module.exports = {
   },
   themeConfig: {
     name: 'sunrisenew',
+    sidebar: 'auto',
     navs: [
       { text: '首页', link: '/' },
       { text: '归档', link: '/archives' },
       { text: '标签', link: '/tags' },
+      { text: '关于', link: '/about' },
       { text: 'GitHub', link: 'https://github.com/sunrisenew' }
     ]
   },

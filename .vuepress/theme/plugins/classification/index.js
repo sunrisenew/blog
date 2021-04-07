@@ -33,7 +33,7 @@ module.exports = (options = {}, context) => ({
         path: `/${id}/${classification}`
       }))
     })
-    if ($page.path !== '/' && $page.created) {
+    if (!$page.frontmatter.noArchiving && $page.created) {
       $page.archive = $page.frontmatter.archive = dayjs($page.created).format(archiveFormat)
     }
   }
