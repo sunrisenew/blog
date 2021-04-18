@@ -1,6 +1,5 @@
 ---
 layout: Home
 noArchiving: true
+title: 首页
 ---
-
-# 首页即将到来

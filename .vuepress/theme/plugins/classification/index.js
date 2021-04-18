@@ -18,6 +18,10 @@ module.exports = (options = {}, context) => ({
       },
       archiveFormat = YEAR_MONTH_FORMAT
     } = options
+    if (!$page.frontmatter.noArchiving && $page.created) {
+      $page.archive = $page.frontmatter.archive = dayjs($page.created).format(archiveFormat)
+    }
+
     blogPluginOptions.frontmatters.forEach(({ id, keys = [] }) => {
       const classifications = keys.reduce((result, key) => {
         const classificationValue = $page[key] || $page.frontmatter[key] || []
@@ -33,8 +37,5 @@ module.exports = (options = {}, context) => ({
         path: `/${id}/${classification}`
       }))
     })
-    if (!$page.frontmatter.noArchiving && $page.created) {
-      $page.archive = $page.frontmatter.archive = dayjs($page.created).format(archiveFormat)
-    }
   }
 })
