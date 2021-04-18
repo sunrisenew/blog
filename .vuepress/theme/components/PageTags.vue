@@ -1,5 +1,5 @@
 <template>
-  <section class="d-inline-flex align-center flex-wrap">
+  <section class="page-tags d-inline-flex align-center flex-wrap ma-4">
     <span class="mr-2">标签:</span>
     <v-btn v-for="(tag, index) in pageTags" :key="index" :to="tag.path" text small rounded>{{tag.name}}</v-btn>
   </section>
