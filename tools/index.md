@@ -8,6 +8,7 @@ tags:
 ## 代码工具
 
 - [变量命名](https://unbug.github.io/codelf/)
+- [正则表达式可视化](https://jex.im/regulex/)
 
 ## 设计
 
@@ -19,9 +20,9 @@ tags:
 - [图片压缩](https://tinypng.com/)
 - [在线PS](https://www.photopea.com/)
 
-## 正则表达式
+## 学习
 
-- [正则表达式可视化](https://jex.im/regulex/)
+- [设计模式](https://refactoringguru.cn/)
 
 ## 软件
 
