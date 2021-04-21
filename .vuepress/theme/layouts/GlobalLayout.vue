@@ -5,7 +5,7 @@
       <script :src="$withCdn('/scripts/background.js')" defer></script>
       <div v-if="!unveiled" class="curtain d-flex justify-center align-center full-size">
         <div class="d-flex flex-column justify-center align-center px-16 py-8 elevation-12 rounded-xl">
-          <h1 class="text-sm-h1 text-h6">SUNRISENEW</h1>
+          <h1 class="text-sm-h1 text-h6 text-uppercase">{{name}}</h1>
           <v-btn color="primary" x-large plain text @click="unveil()">开始</v-btn>
         </div>
       </div>
@@ -15,9 +15,14 @@
             <header class="header">
               <v-row align="center" dense>
                 <v-col cols="auto">
-                  <v-avatar>
-                    <img :src="$withCdn('/images/avatar.png')" alt="Avatar" />
-                  </v-avatar>
+                  <v-menu :close-on-content-click="false" transition="scale-transition" offset-y open-on-click>
+                    <template #activator="{ on }">
+                      <v-avatar class="cursor-pointer" v-on="on">
+                        <img :src="$withCdn('/images/avatar.png')" alt="Avatar" />
+                      </v-avatar>
+                    </template>
+                    <profile :main-image="$withCdn('/images/avatar.png')" :email="profile.email" :github-profile="profile.githubProfile" :wechat-official-account-code="$withCdn('/images/wechat-official-account.png')"></profile>
+                  </v-menu>
                   <v-btn href="/" text>{{name}}</v-btn>
                   <SearchBox></SearchBox>
                 </v-col>
@@ -27,7 +32,7 @@
                       <v-btn v-if="isExternal(nav.link)" :href="nav.link" target="_blank" text>{{nav.text}}</v-btn>
                       <v-btn v-else :to="nav.link" text>{{nav.text}}</v-btn>
                     </template>
-                    <v-menu v-else open-on-hover offset-y light>
+                    <v-menu v-else offset-y open-on-hover>
                       <template v-slot:activator="{ on }">
                         <v-btn v-on="on" :to="nav.link" text>{{nav.text}}</v-btn>
                       </template>
@@ -48,7 +53,7 @@
             <footer class="footer">
               <v-row justify="center" align="center" dense>
                 <v-col cols="auto">
-                  <strong>Copyright &copy; 2018, sunrisenew</strong>
+                  <strong>Copyright &copy; {{currentYear}}, {{name}}</strong>
                 </v-col>
                 <v-col cols="auto">
                   <a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">陇ICP备17004549号</a>
@@ -71,11 +76,14 @@
 <script>
 import SearchBox from '@SearchBox'
 import { isExternal } from '@parent-theme/util'
+import dayjs from '@theme/config/dayjs'
+import Profile from '@theme/components/Profile'
 
 export default {
   name: 'GlobalLayout',
   components: {
-    SearchBox
+    SearchBox,
+    Profile
   },
   data() {
     return {
@@ -89,17 +97,21 @@ export default {
       }
       return 'NotFound'
     },
+    profile() {
+      return this.$themeConfig.profile || {}
+    },
     name() {
       return this.$themeConfig.name
     },
     navs() {
       return this.$themeConfig.navs || []
     },
-    isExternal() {
-      return path => isExternal(path)
+    currentYear() {
+      return dayjs().year()
     }
   },
   methods: {
+    isExternal,
     unveil() {
       this.unveiled = true
     }
