@@ -41,9 +41,12 @@ module.exports = {
           { text: '常用工具', link: '/tools' }
         ]
       },
-      { text: '关于', link: '/about' },
-      { text: 'GitHub', link: 'https://github.com/sunrisenew' }
-    ]
+      { text: '关于', link: '/about' }
+    ],
+    profile: {
+      email: 'sunrisenew@foxmail.com',
+      githubProfile: 'https://github.com/sunrisenew'
+    }
   },
   chainWebpack: (config, isServer) => {
     // Add CDN jsDelivr.
