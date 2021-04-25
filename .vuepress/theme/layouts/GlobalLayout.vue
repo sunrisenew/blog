@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
-    <v-app class="application" id="application">
-      <canvas class="background full-size"></canvas>
+    <v-app class="application" :class="dark ? 'dark' : 'light'" id="application">
+      <canvas v-show="dark" class="background full-size"></canvas>
       <script :src="$withCdn('/scripts/background.js')" defer></script>
       <div v-if="!unveiled" class="curtain d-flex justify-center align-center full-size">
         <div class="d-flex flex-column justify-center align-center px-16 py-8 elevation-12 rounded-xl">
@@ -43,6 +43,12 @@
                       </v-list>
                     </v-menu>
                   </nav>
+                </v-col>
+                <v-spacer></v-spacer>
+                <v-col cols="auto">
+                  <v-btn icon @click="$vuetify.theme.dark = !dark">
+                    <v-icon>mdi-theme-light-dark</v-icon>
+                  </v-btn>
                 </v-col>
               </v-row>
             </header>
@@ -87,7 +93,7 @@ export default {
   },
   data() {
     return {
-      unveiled: this.$route.path !== '/'
+      unveiled: false
     }
   },
   computed: {
@@ -106,9 +112,21 @@ export default {
     navs() {
       return this.$themeConfig.navs || []
     },
+    dark() {
+      // ISSUE Why the this.$vuetify.theme is undefined during compiling the client files?
+      return (this.$vuetify.theme || {}).dark
+    },
     currentYear() {
       return dayjs().year()
     }
+  },
+  watch: {
+    unveiled(newValue) {
+      this.$vuetify.theme.dark = !newValue
+    }
+  },
+  created() {
+    this.unveiled = this.$route.path !== '/'
   },
   methods: {
     isExternal,

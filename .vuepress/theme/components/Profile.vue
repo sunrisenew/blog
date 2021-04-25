@@ -44,7 +44,4 @@ export default {
 <style lang="stylus" scoped>
 .profile
   width: 20rem
-
-  &.v-card
-    background: black
 </style>
