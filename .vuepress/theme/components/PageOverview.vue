@@ -1,5 +1,5 @@
 <template>
-  <v-card class="page-overview my-6" raised shaped>
+  <v-card class="page-overview my-6 bg-transparent" raised>
     <v-card-title primary-title>
       <a :href="page.path">
         <h3>{{page.title}}</h3>
