@@ -10,7 +10,7 @@ const COLORS = {
   PRIMARY: '#2B73AF'
 }
 
-const DARK_COLORS = {
+const COLORS_DARK = {
   PRIMARY: '#F2BE45'
 }
 
@@ -22,5 +22,5 @@ module.exports = {
   DATETIME_FORMAT,
   YEAR_MONTH_FORMAT,
   COLORS,
-  DARK_COLORS
+  COLORS_DARK
 }

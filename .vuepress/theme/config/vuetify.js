@@ -1,6 +1,6 @@
 import 'vuetify/dist/vuetify.min.css'
 import Vuetify from 'vuetify'
-import { COLORS, DARK_COLORS } from '@theme/constant'
+import { COLORS, COLORS_DARK } from '@theme/constant'
 
 function install(Vue, options) {
   Vue.use(Vuetify)
@@ -16,7 +16,7 @@ function install(Vue, options) {
             primary: COLORS.PRIMARY
           },
           dark: {
-            primary: DARK_COLORS.PRIMARY
+            primary: COLORS_DARK.PRIMARY
           }
         }
       }
