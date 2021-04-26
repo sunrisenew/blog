@@ -72,7 +72,7 @@ SOFTWARE.
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 30, g: 30, b: 30 },
+    BACK_COLOR: { r: 18, g: 18, b: 18 },
     TRANSPARENT: false,
     BLOOM: true,
     BLOOM_ITERATIONS: 8,
