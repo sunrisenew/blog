@@ -6,6 +6,9 @@ function install(Vue, options) {
   Vue.use(Vuetify)
   options && (Object.assign(options, {
     vuetify: new Vuetify({
+      breakpoint: {
+        mobileBreakpoint: 'sm'
+      },
       theme: {
         dark: true,
         themes: {

@@ -33,6 +33,11 @@
   .search-box .suggestions
     z-index: 1
 
-  @media (max-width: 599px)
-    .search-box input:focus
-      width: 6rem
+  @media (max-width: 959px)
+    .search-box
+      input
+        left: 0
+        width: 100%
+
+        &:focus
+          width: 100%

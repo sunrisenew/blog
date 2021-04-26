@@ -24,7 +24,6 @@
                     <profile :main-image="$withCdn('/images/avatar.png')" :email="profile.email" :github-profile="profile.githubProfile" :wechat-official-account-code="$withCdn('/images/wechat-official-account.png')"></profile>
                   </v-menu>
                   <v-btn href="/" text>{{name}}</v-btn>
-                  <SearchBox></SearchBox>
                 </v-col>
                 <v-col cols="auto">
                   <nav v-for="(nav, index) in navs" :key="index">
@@ -44,8 +43,21 @@
                     </v-menu>
                   </nav>
                 </v-col>
-                <v-spacer></v-spacer>
-                <v-col cols="auto">
+                <v-col class="ml-auto" cols="auto">
+                  <v-dialog v-if="mobile" v-model="searchDialog" content-class="pa-2 bg-reading" fullscreen>
+                    <template #activator="{ on, attrs }">
+                      <v-btn v-on="on" v-bind="attrs" icon>
+                        <v-icon>mdi-magnify</v-icon>
+                      </v-btn>
+                    </template>
+                    <div class="d-flex align-center">
+                      <search-box class="flex-grow-1"></search-box>
+                      <v-btn class="ml-2" icon @click="closeSearchDialog()">
+                        <v-icon>mdi-close</v-icon>
+                      </v-btn>
+                    </div>
+                  </v-dialog>
+                  <search-box v-else></search-box>
                   <v-btn icon @click="$vuetify.theme.dark = !dark">
                     <v-icon>mdi-theme-light-dark</v-icon>
                   </v-btn>
@@ -93,7 +105,8 @@ export default {
   },
   data() {
     return {
-      unveiled: false
+      unveiled: false,
+      searchDialog: false
     }
   },
   computed: {
@@ -116,6 +129,10 @@ export default {
       // ISSUE Why the this.$vuetify.theme is undefined during compiling the client files?
       return (this.$vuetify.theme || {}).dark
     },
+    mobile() {
+      // ISSUE Why the this.$vuetify.breakpoint is undefined during compiling the client files?
+      return (this.$vuetify.breakpoint || {}).mobile
+    },
     currentYear() {
       return dayjs().year()
     }
@@ -132,6 +149,9 @@ export default {
     isExternal,
     unveil() {
       this.unveiled = true
+    },
+    closeSearchDialog() {
+      this.searchDialog = false
     }
   }
 }
