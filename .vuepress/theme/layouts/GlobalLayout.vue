@@ -5,7 +5,7 @@
       <script :src="$withCdn('/scripts/background.js')" defer></script>
       <div v-if="!unveiled" class="curtain d-flex justify-center align-center full-size">
         <div class="d-flex flex-column justify-center align-center px-16 py-8 elevation-12 rounded-xl">
-          <h1 class="text-sm-h1 text-h6 text-uppercase">{{name}}</h1>
+          <h1 class="text-h6 text-sm-h2 text-md-h1 text-uppercase">{{name}}</h1>
           <v-btn color="primary" x-large plain text @click="unveil()">开始</v-btn>
         </div>
       </div>
@@ -32,12 +32,12 @@
                       <v-btn v-else :to="nav.link" text>{{nav.text}}</v-btn>
                     </template>
                     <v-menu v-else offset-y open-on-hover>
-                      <template v-slot:activator="{ on }">
+                      <template #activator="{ on }">
                         <v-btn v-on="on" :to="nav.link" text>{{nav.text}}</v-btn>
                       </template>
                       <v-list>
                         <v-list-item v-for="item in nav.items" :key="item.text" @click="$router.push(item.link)">
-                          <v-list-item-title>{{ item.text }}</v-list-item-title>
+                          <v-list-item-title>{{item.text}}</v-list-item-title>
                         </v-list-item>
                       </v-list>
                     </v-menu>
@@ -58,7 +58,7 @@
                     </div>
                   </v-dialog>
                   <search-box v-else></search-box>
-                  <v-btn icon @click="$vuetify.theme.dark = !dark">
+                  <v-btn icon @click="switchTheme()">
                     <v-icon>mdi-theme-light-dark</v-icon>
                   </v-btn>
                 </v-col>
@@ -149,6 +149,9 @@ export default {
     isExternal,
     unveil() {
       this.unveiled = true
+    },
+    switchTheme() {
+      this.$vuetify.theme.dark = !this.dark
     },
     closeSearchDialog() {
       this.searchDialog = false
