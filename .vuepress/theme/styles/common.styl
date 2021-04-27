@@ -27,8 +27,13 @@
       tr:nth-child(2n)
         background-color: initial
 
-  .theme-default-content div[class*='language-']
-    margin: 1rem 0
+  .theme-default-content
+    &:not(.custom) > *:first-child
+      margin-top: unset
+      padding-top: unset
+
+    div[class*='language-']
+      margin: 1rem 0
 
   .search-box .suggestions
     z-index: 1

@@ -36,7 +36,7 @@
                         <v-btn v-on="on" :to="nav.link" text>{{nav.text}}</v-btn>
                       </template>
                       <v-list>
-                        <v-list-item v-for="item in nav.items" :key="item.text" @click="$router.push(item.link)">
+                        <v-list-item v-for="item in nav.items" :key="item.text" :to="item.link">
                           <v-list-item-title>{{item.text}}</v-list-item-title>
                         </v-list-item>
                       </v-list>
@@ -140,6 +140,9 @@ export default {
   watch: {
     unveiled(newValue) {
       this.$vuetify.theme.dark = !newValue
+    },
+    ['$route.path']() {
+      this.closeSearchDialog()
     }
   },
   created() {
