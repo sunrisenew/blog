@@ -8,7 +8,8 @@
       <v-btn v-if="githubProfile" :href="githubProfile" target="_blank" icon>
         <v-icon>mdi-github</v-icon>
       </v-btn>
-      <v-menu v-if="wechatOfficialAccountCode" :close-delay="100" rounded="xl" transition="scale-transition" offset-y open-on-hover>
+      <v-menu v-if="wechatOfficialAccountCode"
+        :close-delay="100" rounded="xl" transition="scale-transition" offset-y open-on-hover>
         <template #activator="{ on }">
           <v-btn v-on="on" icon>
             <v-icon>mdi-wechat</v-icon>

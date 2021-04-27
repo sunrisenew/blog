@@ -7,7 +7,8 @@
             <router-link :to="archive.path">{{archive.name}}</router-link>
           </h3>
         </template>
-        <page-overview v-for="(page, pageIndex) in sortPages(archive.pages)" :key="pageIndex" :page="page"></page-overview>
+        <page-overview v-for="(page, pageIndex) in sortPages(archive.pages)" :key="pageIndex"
+          :page="page"></page-overview>
       </v-timeline-item>
     </v-timeline>
   </section>

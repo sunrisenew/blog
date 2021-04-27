@@ -21,7 +21,9 @@
                         <img :src="$withCdn('/images/avatar.png')" alt="Avatar" />
                       </v-avatar>
                     </template>
-                    <profile :main-image="$withCdn('/images/avatar.png')" :email="profile.email" :github-profile="profile.githubProfile" :wechat-official-account-code="$withCdn('/images/wechat-official-account.png')"></profile>
+                    <profile :main-image="$withCdn('/images/avatar.png')" :email="profile.email"
+                      :github-profile="profile.githubProfile"
+                      :wechat-official-account-code="$withCdn('/images/wechat-official-account.png')"></profile>
                   </v-menu>
                   <v-btn href="/" text>{{name}}</v-btn>
                 </v-col>
@@ -77,7 +79,9 @@
                   <a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">陇ICP备17004549号</a>
                 </v-col>
                 <v-col cols="auto">
-                  <a class="d-flex align-center" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank" rel="noopener noreferrer">
+                  <a class="d-flex align-center"
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113" target="_blank"
+                    rel="noopener noreferrer">
                     <img :src="$withCdn('/images/gov-license.png')" alt="" />
                     <span>甘公网安备 62062202000113号</span>
                   </a>
