@@ -4,7 +4,7 @@
       <v-timeline-item v-for="(archive, archiveIndex) in archives" :key="archiveIndex" small>
         <template v-slot:opposite>
           <h3>
-            <a :href="archive.path">{{archive.name}}</a>
+            <router-link :to="archive.path">{{archive.name}}</router-link>
           </h3>
         </template>
         <page-overview v-for="(page, pageIndex) in sortPages(archive.pages)" :key="pageIndex" :page="page"></page-overview>

@@ -1,18 +1,16 @@
 <template>
   <v-card class="page-overview my-6 bg-transparent" raised>
     <v-card-title primary-title>
-      <a :href="page.path">
-        <h3>{{page.title}}</h3>
-      </a>
+      <h3>
+        <router-link :to="page.path">{{page.title}}</router-link>
+      </h3>
     </v-card-title>
     <div v-if="page.created" class="mx-4">
       <span>创建时间:</span>
       <v-btn :to="`/archives/${page.archive}`" text small>{{$formatDate(page.created)}}</v-btn>
     </div>
     <page-tags :page="page"></page-tags>
-    <v-card-text v-if="page.excerpt">
-      <p v-html="page.excerpt"></p>
-    </v-card-text>
+    <div v-if="page.excerpt" class="theme-default-content py-4" v-html="page.excerpt"></div>
   </v-card>
 </template>
 
