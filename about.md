@@ -1,8 +1,7 @@
 ---
+title: 关于
 noArchiving: true
 ---
-
-# 关于
 
 ## 感谢以下开源项目
 
