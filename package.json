@@ -28,7 +28,7 @@
     "vuepress-plugin-medium-zoom": "^1.1.9",
     "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-reading-time": "^0.1.1",
-    "vuetify": "^2.4.9"
+    "vuetify": "^2.5.0"
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.4",
