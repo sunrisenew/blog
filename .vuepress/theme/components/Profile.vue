@@ -8,6 +8,9 @@
       <v-btn v-if="githubProfile" :href="githubProfile" target="_blank" icon>
         <v-icon>mdi-github</v-icon>
       </v-btn>
+      <v-btn v-if="gitlabProfile" :href="gitlabProfile" target="_blank" icon>
+        <v-icon>mdi-gitlab</v-icon>
+      </v-btn>
       <v-menu v-if="wechatOfficialAccountCode"
         :close-delay="100" rounded="xl" transition="scale-transition" offset-y open-on-hover>
         <template #activator="{ on }">
@@ -33,6 +36,9 @@ export default {
       type: String
     },
     githubProfile: {
+      type: String
+    },
+    gitlabProfile: {
       type: String
     },
     wechatOfficialAccountCode: {

@@ -45,7 +45,8 @@ module.exports = {
     ],
     profile: {
       email: 'sunrisenew@foxmail.com',
-      githubProfile: 'https://github.com/sunrisenew'
+      githubProfile: 'https://github.com/sunrisenew',
+      gitlabProfile: 'https://gitlab.com/sunrisenew'
     }
   },
   chainWebpack: (config, isServer) => {
