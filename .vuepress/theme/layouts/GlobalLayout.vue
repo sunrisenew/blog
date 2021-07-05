@@ -23,6 +23,7 @@
                     </template>
                     <profile :main-image="$withCdn('/images/avatar.png')" :email="profile.email"
                       :github-profile="profile.githubProfile"
+                      :gitlab-profile="profile.gitlabProfile"
                       :wechat-official-account-code="$withCdn('/images/wechat-official-account.png')"></profile>
                   </v-menu>
                   <v-btn href="/" text>{{name}}</v-btn>
