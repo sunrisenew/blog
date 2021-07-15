@@ -60,25 +60,25 @@ tags:
 
 ``` js{7,18}
 function generateWatermark(text, width, height, rows = 12, columns = 6, angle = -10) {
-    const canvas = document.createElement('canvas')
-    const context = canvas.getContext('2d')
-    canvas.width = width / columns
-    canvas.height = height / rows
+  const canvas = document.createElement('canvas')
+  const context = canvas.getContext('2d')
+  canvas.width = width / columns
+  canvas.height = height / rows
 
-    context.rotate(angle * Math.PI / 180)
-    context.font = '16px 微软雅黑'
-    context.fillStyle = 'rgba(200, 200, 200, 0.5)'
-    context.textAlign = 'left'
-    context.textBaseline = 'middle'
-    context.fillText(text, 0, 30)
+  context.rotate(angle * Math.PI / 180)
+  context.font = '16px 微软雅黑'
+  context.fillStyle = 'rgba(200, 200, 200, 0.5)'
+  context.textAlign = 'left'
+  context.textBaseline = 'middle'
+  context.fillText(text, 0, 30)
 
-    const watermarkDiv = document.createElement('div')
-    watermarkDiv.className = 'watermark'
-    watermarkDiv.style.width = width
-    watermarkDiv.style.height = height
-    watermarkDiv.style.background = `url(${canvas.toDataURL('image/png')}) left top repeat`
+  const watermarkDiv = document.createElement('div')
+  watermarkDiv.className = 'watermark'
+  watermarkDiv.style.width = width
+  watermarkDiv.style.height = height
+  watermarkDiv.style.background = `url(${canvas.toDataURL('image/png')}) left top repeat`
 
-    return watermarkDiv
+  return watermarkDiv
 }
 ```
 
@@ -96,31 +96,31 @@ function generateWatermark(text, width, height, rows = 12, columns = 6, angle = 
 
 ``` js{5-9,14-15}
 function renderPage(pdfContainer, pdf, pageIndex) {
-    pdf.getPage(pageIndex).then(page => {
-        const viewport = page.getViewport({ scale: 1.5, })
+  pdf.getPage(pageIndex).then(page => {
+    const viewport = page.getViewport({ scale: 1.5, })
 
-        const pageContainer = document.createElement('div')
-        pageContainer.classList.add('page-container')
-        pageContainer.style.width = `${viewport.width}px`
-        pageContainer.style.height = `${viewport.height}px`
-        pdfContainer.appendChild(pageContainer)
+    const pageContainer = document.createElement('div')
+    pageContainer.classList.add('page-container')
+    pageContainer.style.width = `${viewport.width}px`
+    pageContainer.style.height = `${viewport.height}px`
+    pdfContainer.appendChild(pageContainer)
 
-        const canvas = document.createElement('canvas')
-        pageContainer.appendChild(canvas)
+    const canvas = document.createElement('canvas')
+    pageContainer.appendChild(canvas)
 
-        const watermarkDiv = generateWatermark('SUNRISENEW', viewport.width, viewport.height)
-        pageContainer.appendChild(watermarkDiv)
+    const watermarkDiv = generateWatermark('SUNRISENEW', viewport.width, viewport.height)
+    pageContainer.appendChild(watermarkDiv)
 
-        const context = canvas.getContext('2d')
-        canvas.height = viewport.height
-        canvas.width = viewport.width
+    const context = canvas.getContext('2d')
+    canvas.height = viewport.height
+    canvas.width = viewport.width
 
-        const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-        }
-        page.render(renderContext)
-    })
+    const renderContext = {
+      canvasContext: context,
+      viewport: viewport
+    }
+    page.render(renderContext)
+  })
 }
 ```
 
@@ -128,16 +128,16 @@ function renderPage(pdfContainer, pdf, pageIndex) {
 
 ``` css{2,7}
 .page-container {
-    position: relative;
-    margin: auto;
+  position: relative;
+  margin: auto;
 }
 
 .page-container .watermark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 ```
 
