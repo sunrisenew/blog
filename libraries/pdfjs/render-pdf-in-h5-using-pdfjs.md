@@ -32,15 +32,15 @@ npm i -S pdfjs-dist
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <base href="/">
-    <title>PDF.js</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <base href="/">
+  <title>PDF.js</title>
 </head>
 
 <body>
-    <div id="pdf-container" class="pdf-container"></div>
+  <div id="pdf-container" class="pdf-container"></div>
 </body>
 
 </html>
@@ -60,36 +60,36 @@ import 'pdfjs-dist/build/pdf.worker.entry'
 
 // 在页面加载完成后开始渲染PDF。
 window.addEventListener('load', () => {
-    renderPdf('/static/compressed.pdf')
+  renderPdf('/static/compressed.pdf')
 })
 
 function renderPdf(url) {
-    const loadingTask = PDFJS.getDocument(url)
-    loadingTask.promise.then(function(pdf) {
-        const pdfContainer = document.querySelector('#pdf-container')
-        for (let i = 1; i <= pdf.numPages; i++) {
-            renderPage(pdfContainer, pdf, i)
-        }
-    })
+  const loadingTask = PDFJS.getDocument(url)
+  loadingTask.promise.then(function(pdf) {
+    const pdfContainer = document.querySelector('#pdf-container')
+    for (let i = 1; i <= pdf.numPages; i++) {
+      renderPage(pdfContainer, pdf, i)
+    }
+  })
 }
 
 function renderPage(pdfContainer, pdf, pageIndex) {
-    pdf.getPage(pageIndex).then(page => {
-        const viewport = page.getViewport({ scale: 1.5, })
+  pdf.getPage(pageIndex).then(page => {
+    const viewport = page.getViewport({ scale: 1.5, })
 
-        const canvas = document.createElement('canvas')
-        pdfContainer.appendChild(canvas)
+    const canvas = document.createElement('canvas')
+    pdfContainer.appendChild(canvas)
 
-        const context = canvas.getContext('2d')
-        canvas.height = viewport.height
-        canvas.width = viewport.width
+    const context = canvas.getContext('2d')
+    canvas.height = viewport.height
+    canvas.width = viewport.width
 
-        const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-        }
-        page.render(renderContext)
-    })
+    const renderContext = {
+      canvasContext: context,
+      viewport: viewport
+    }
+    page.render(renderContext)
+  })
 }
 ```
 
@@ -112,16 +112,16 @@ Warning: Error during font loading: The CMap "baseUrl" parameter must be specifi
 
 ``` js{4}
 function renderPdf(url) {
-    const loadingTask = PDFJS.getDocument({
-        url,
-        cMapUrl: '/static/cmaps/'
-    })
-    loadingTask.promise.then(function(pdf) {
-        const pdfContainer = document.querySelector('#pdf-container')
-        for (let i = 1; i <= pdf.numPages; i++) {
-            renderPage(pdfContainer, pdf, i)
-        }
-    })
+  const loadingTask = PDFJS.getDocument({
+    url,
+    cMapUrl: '/static/cmaps/'
+  })
+  loadingTask.promise.then(function(pdf) {
+    const pdfContainer = document.querySelector('#pdf-container')
+    for (let i = 1; i <= pdf.numPages; i++) {
+      renderPage(pdfContainer, pdf, i)
+    }
+  })
 }
 ```
 
@@ -133,17 +133,17 @@ Warning: Error during font loading: Unable to load CMap at: /static/cmaps/UniGB-
 
 ``` js{5}
 function renderPdf(url) {
-    const loadingTask = PDFJS.getDocument({
-        url,
-        cMapUrl: '/static/cmaps/',
-        cMapPacked: true
-    })
-    loadingTask.promise.then(function(pdf) {
-        const pdfContainer = document.querySelector('#pdf-container')
-        for (let i = 1; i <= pdf.numPages; i++) {
-            renderPage(pdfContainer, pdf, i)
-        }
-    })
+  const loadingTask = PDFJS.getDocument({
+    url,
+    cMapUrl: '/static/cmaps/',
+    cMapPacked: true
+  })
+  loadingTask.promise.then(function(pdf) {
+    const pdfContainer = document.querySelector('#pdf-container')
+    for (let i = 1; i <= pdf.numPages; i++) {
+      renderPage(pdfContainer, pdf, i)
+    }
+  })
 }
 ```
 
