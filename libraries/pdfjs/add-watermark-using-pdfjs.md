@@ -124,4 +124,21 @@ function renderPage(pdfContainer, pdf, pageIndex) {
 }
 ```
 
+为水印元素设置绝对定位：
+
+``` css{2,7}
+.page-container {
+    position: relative;
+    margin: auto;
+}
+
+.page-container .watermark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+```
+
 至此，我们已经为渲染出的每一页PDF添加上了`6 * 12`的水印图案，但仔细观察发现还有一个小问题：`水印图案是盖在PDF内容上面的，而一般的水印都是处于内容下层`。时间有限，留待后续研究。
