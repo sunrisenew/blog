@@ -1,5 +1,5 @@
 ---
-title: 使用PDF.js对展示信息的进行脱敏处理
+title: 使用PDF.js对展示的信息进行脱敏处理
 tags:
   - 工具库
   - H5
