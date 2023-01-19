@@ -13,7 +13,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
-    "comma-dangle": ["error", "never"],
+    'quote-props': ['error', 'as-needed'],
+    'comma-dangle': ['error', 'never'],
     'no-var': 'error',
     'no-unused-vars': 'off',
     'no-irregular-whitespace': 'off'
