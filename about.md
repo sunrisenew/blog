@@ -13,7 +13,6 @@ noArchiving: true
 
 ## 部署
 
-| 名称                                      | 描述               |
-| ----------------------------------------- | ------------------ |
-| [GitHub Pages](https://pages.github.com/) | GitHub仓库页面托管 |
-| [jsDelivr](https://www.jsdelivr.com/)     | CDN                |
+| 名称                              | 描述           |
+| --------------------------------- | -------------- |
+| [阿里云](https://www.aliyun.com/) | 轻量应用服务器 |

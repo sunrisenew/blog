@@ -50,7 +50,7 @@ module.exports = {
     }
   },
   chainWebpack: (config, isServer) => {
-    // Add CDN jsDelivr.
+    // Use base CDN url.
     if (process.env.NODE_ENV === 'production') {
       config.output.publicPath(`${BASE_CDN_URL}/`)
     }

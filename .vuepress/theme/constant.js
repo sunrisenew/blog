@@ -1,5 +1,6 @@
 const BASE_CDN_DOMAIN = 'https://cdn.jsdelivr.net'
-const BASE_CDN_URL = `${BASE_CDN_DOMAIN}/gh/sunrisenew/blog/docs`
+// const BASE_CDN_URL = `${BASE_CDN_DOMAIN}/gh/sunrisenew/blog/docs`
+const BASE_CDN_URL = ''
 
 const DATE_FORMAT = 'YYYY-MM-DD'
 const TIME_FORMAT = 'HH:mm:ss'
