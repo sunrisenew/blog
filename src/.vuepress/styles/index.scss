@@ -1,0 +1,15 @@
+// place your custom styles here
+.vp-nav-logo,
+.vp-blog-hero-image {
+  border-radius: 50%;
+}
+
+.vp-blog-hero>[class^="vp-blog-hero"] {
+  user-select: none;
+  pointer-events: none;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
