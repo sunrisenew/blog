@@ -2,7 +2,7 @@ import { navbar } from 'vuepress-theme-hope'
 
 export const zhNavbar = navbar([
   '/',
-  { text: '时间轴', icon: 'time', link: '/timeline' },
+  { text: '时间轴', icon: 'time', link: '/timeline/' },
   {
     text: '更多',
     icon: 'more',
@@ -11,7 +11,7 @@ export const zhNavbar = navbar([
       {
         text: '工具',
         icon: 'tool',
-        link: 'tools'
+        link: 'tools/'
       }
     ]
   },
