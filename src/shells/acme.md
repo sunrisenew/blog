@@ -1,6 +1,6 @@
 ---
 title: acme.sh
-tag:
+tags:
   - Shell
   - HTTPS
 ---

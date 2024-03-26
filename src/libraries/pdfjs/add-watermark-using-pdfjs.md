@@ -1,6 +1,6 @@
 ---
 title: 使用PDF.js在渲染PDF文档时添加水印
-tag:
+tags:
   - 工具库
   - H5
   - JavaScript
