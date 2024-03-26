@@ -1,6 +1,6 @@
 ---
 title: 根据指定的行数拆分CSV文件
-tag:
+tags:
   - 工具
   - Shell
   - CSV

@@ -1,6 +1,6 @@
 ---
 title: 创建自定义的Axios实例
-tag:
+tags:
   - 工具库
   - H5
   - JavaScript

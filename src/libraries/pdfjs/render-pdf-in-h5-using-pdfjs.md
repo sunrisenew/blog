@@ -1,6 +1,6 @@
 ---
 title: 使用PDF.js在H5页面中渲染PDF文档
-tag:
+tags:
   - 工具库
   - H5
   - JavaScript
