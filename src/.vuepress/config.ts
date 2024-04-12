@@ -18,7 +18,7 @@ export default defineUserConfig({
       url: 'https://blog.sunrisenew.cn',
       email: 'sunrisenew@foxmail.com'
     },
-    iconAssets: 'iconfont',
+    iconAssets: 'iconify',
     favicon: '/images/avatar.png',
     logo: '/images/avatar.png',
     repo: 'sunrisenew/blog',
@@ -28,7 +28,7 @@ export default defineUserConfig({
     editLink: false,
     displayFooter: true,
     footer: `
-      <a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">陇ICP备17004549号</a>
+      <a href="http://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">陇ICP备17004549号</a>
       <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62062202000113"
         target="_blank"
         rel="noopener noreferrer"

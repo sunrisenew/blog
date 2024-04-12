@@ -1,9 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "include": [
-    "src/.vuepress/**/*",
-    "src/.vuepress/**/*.vue",
-    "src/.vuepress/**/*.d.ts"
+    "src/.vuepress/**/*.ts",
+    "src/.vuepress/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
   ],
   "compilerOptions": {
     "baseUrl": ".",
