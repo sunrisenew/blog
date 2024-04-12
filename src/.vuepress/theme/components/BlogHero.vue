@@ -2,7 +2,7 @@
   <blog-hero>
     <template #heroBg>
       <div ref="backgroundRef" class="background-wrapper">
-        <canvas class="background full-size"></canvas>
+        <canvas id="background" class="background full-size"></canvas>
       </div>
     </template>
   </blog-hero>

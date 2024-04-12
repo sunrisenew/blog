@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-(function () {
+(function() {
   'use strict'
 
   // Mobile promo section
@@ -1463,7 +1463,7 @@ SOFTWARE.
     return radius
   }
 
-  document.addEventListener('mousedown', e => {
+  document.querySelector('#background').addEventListener('mousedown', e => {
     let posX = scaleByPixelRatio(e.offsetX)
     let posY = scaleByPixelRatio(e.offsetY)
     let pointer = pointers.find(p => p.id == -1)
@@ -1472,7 +1472,7 @@ SOFTWARE.
     updatePointerDownData(pointer, -1, posX, posY)
   })
 
-  document.addEventListener('mousemove', e => {
+  document.querySelector('#background').addEventListener('mousemove', e => {
     let pointer = pointers[0]
     if (!pointer.down) return
     let posX = scaleByPixelRatio(e.offsetX)
@@ -1480,7 +1480,7 @@ SOFTWARE.
     updatePointerMoveData(pointer, posX, posY)
   })
 
-  document.addEventListener('mouseup', () => {
+  document.querySelector('#background').addEventListener('mouseup', () => {
     updatePointerUpData(pointers[0])
   })
 
