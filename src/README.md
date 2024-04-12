@@ -1,7 +1,7 @@
 ---
 home: true
 layout: BlogHome
-icon: home
+icon: 'mdi:home'
 title: 首页
 heroImage: /images/avatar.png
 heroText: sunrisenew

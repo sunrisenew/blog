@@ -18,7 +18,7 @@ export default defineUserConfig({
       url: 'https://blog.sunrisenew.cn',
       email: 'sunrisenew@foxmail.com'
     },
-    iconAssets: 'iconfont',
+    iconAssets: 'iconify',
     favicon: '/images/avatar.png',
     logo: '/images/avatar.png',
     repo: 'sunrisenew/blog',
