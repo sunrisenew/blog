@@ -7,13 +7,13 @@ tags:
 
 ## 更新acme.sh
 
-```bash
+``` bash
 acme.sh --upgrade
 ```
 
 ## 更新证书
 
-```bash
+``` bash
 vi /etc/nginx/sites-available/${domain}
 nginx -s reload
 acme.sh -r --domain ${domain}
